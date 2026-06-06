@@ -197,7 +197,7 @@ The chat interface runs entirely on free tiers. Groq's free tier allows 100K tok
 | Chat hallucination rate | 0/15 questions (0%) |
 | Retrieval precision | 13/15 (87%) |
 
-Full evaluation methodology and failure analysis in [`eval_report.pdf`](./eval_report.pdf).
+Full evaluation methodology and failure analysis in [`Evals Report_Yangoti Sai Bhavya.pdf`](./Evals%20Report_Yangoti%20Sai%20Bhavya.pdf).
 
 
 ## Known Limitations
