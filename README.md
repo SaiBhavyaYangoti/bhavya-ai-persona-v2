@@ -14,29 +14,29 @@ An AI representative of Yangoti Sai Bhavya that can answer questions about her b
 
 ```
 ┌─────────────────────────────────────────────────────────────────┐
-│                        PART A — VOICE AGENT                     │
-│                                                                  │
-│  Caller → Vapi → Deepgram (STT) → GPT-4o → Naina TTS → Caller  │
+│                PART A — VOICE AGENT                             │
+│                                                                 │
+│  Caller → Vapi → Deepgram (STT) → GPT-4o → Naina TTS → Caller   │
 │                       ↓                                         │
-│              FastAPI backend (Render)                            │
+│              FastAPI backend (Render)                           │
 │                       ↓                                         │
-│                   Cal.com API                                    │
+│                   Cal.com API                                   │
 └─────────────────────────────────────────────────────────────────┘
 
 ┌─────────────────────────────────────────────────────────────────┐
-│                      PART B — CHAT INTERFACE                    │
-│                                                                  │
-│  User → Streamlit (HuggingFace Spaces)                          │
-│              ↓                                                   │
-│     RAG Pipeline:                                               │
-│       Resume (section-aware chunks)  ──┐                        │
-│       GitHub READMEs (120-word chunks) ┼→ ChromaDB              │
-│                                        ↓                        │
+│                 PART B — CHAT INTERFACE                         │
+│                                                                 │
+│        User → Streamlit (HuggingFace Spaces)                    │
+│                         ↓                                       │
+│                   RAG Pipeline:                                 │
+│       Resume (section-aware chunks)                             │
+│       GitHub READMEs (120-word chunks) → ChromaDB               │
+│                        ↓                                        │
 │              all-MiniLM-L6-v2 embeddings                        │
 │                        ↓                                        │
 │              Groq LLaMA-3.3-70B                                 │
 │                        ↓                                        │
-│                   Cal.com API                                    │
+│                   Cal.com API                                   │
 └─────────────────────────────────────────────────────────────────┘
 
              Shared: Cal.com → Google Calendar
@@ -185,7 +185,7 @@ All resume sections are always injected into retrieval context before GitHub chu
 | ChromaDB (ephemeral, in-memory) | Free | $0.00 |
 | **Total** | **Free** | **$0.00/session** |
 
-> The chat interface runs entirely on free tiers. Groq's free tier allows 100K tokens/day — sufficient for evaluation traffic. Voice calls cost ~$0.30 each on Vapi's pay-as-you-go plan with $10 free credits on signup.
+The chat interface runs entirely on free tiers. Groq's free tier allows 100K tokens/day — sufficient for evaluation traffic. Voice calls cost ~$0.30 each on Vapi's pay-as-you-go plan with $10 free credits on signup.
 
 
 ## Evals Summary
