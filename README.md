@@ -167,14 +167,13 @@ All resume sections are always injected into retrieval context before GitHub chu
 ## Cost Breakdown
 
 ### Voice Agent (per call)
-
 | Component | Rate | Typical 3-min call |
 |-----------|------|-------------------|
 | Vapi platform | $0.05/min | $0.15 |
 | Deepgram STT | $0.01/min | $0.03 |
-| GPT-4o | $0.02/min | $0.06 |
+| GPT-4o | $0.04/min | $0.12 |
 | Naina TTS | $0.02/min | $0.06 |
-| **Total** | **~$0.10/min** | **~$0.30/call** |
+| **Total** | **~$0.12/min** | **~$0.36/call** |
 
 ### Chat Interface (per session)
 
@@ -195,7 +194,7 @@ The chat interface runs entirely on free tiers. Groq's free tier allows 100K tok
 | Voice first-response latency | ~1.15s average |
 | Transcription accuracy | ~94% |
 | Booking completion rate | 8/8 test calls |
-| Chat hallucination rate | 1/15 questions (7%) |
+| Chat hallucination rate | 0/15 questions (0%) |
 | Retrieval precision | 13/15 (87%) |
 
 Full evaluation methodology and failure analysis in [`eval_report.pdf`](./eval_report.pdf).
