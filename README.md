@@ -76,7 +76,7 @@ bhavya-ai/
 
 ## Setup Instructions
 
-### Part A — Voice Agent
+### Part A - Voice Agent
 
 #### 1. Deploy the FastAPI backend
 
@@ -87,7 +87,7 @@ pip install -r requirements.txt
 uvicorn main:app --host 0.0.0.0 --port 8000
 ```
 
-Or deploy directly to Render — connect your GitHub repo and it auto-deploys.
+Or deploy directly to Render - connect your GitHub repo and it auto-deploys.
 
 #### 2. Configure Vapi
 
@@ -109,7 +109,7 @@ Or deploy directly to Render — connect your GitHub repo and it auto-deploys.
 5. Add the API key to your Render environment variables as `CAL_API_KEY`
 
 
-### Part B — Chat Interface
+### Part B - Chat Interface
 
 #### Local Setup
 
@@ -150,16 +150,16 @@ The app will build automatically and be publicly accessible.
 
 The chat interface uses a two-source RAG pipeline:
 
-**Resume** — chunked by section (not fixed-size), so each chunk contains a semantically complete unit:
-- `personal_info` — name, contact, links
-- `skills` — full skills list
-- `experience` — all 3 internships in one chunk
-- `education` — degree, institution, CGPA
-- `publications` — both IEEE papers
-- `projects` — all resume projects
-- `achievements` — GATE rank, awards
+**Resume** - chunked by section (not fixed-size), so each chunk contains a semantically complete unit:
+- `personal_info` - name, contact, links
+- `skills` - full skills list
+- `experience` - all 3 internships in one chunk
+- `education` - degree, institution, CGPA
+- `publications` - both IEEE papers
+- `projects` - all resume projects
+- `achievements` - GATE rank, awards
 
-**GitHub READMEs** — fetched dynamically via GitHub API at startup, chunked at 120 words with 20-word overlap.
+**GitHub READMEs** - fetched dynamically via GitHub API at startup, chunked at 120 words with 20-word overlap.
 
 All resume sections are always injected into retrieval context before GitHub chunks, preventing GitHub content from overriding verified resume facts. Follow-up queries are expanded using the previous user message to maintain conversation context across turns.
 
@@ -185,7 +185,7 @@ All resume sections are always injected into retrieval context before GitHub chu
 | ChromaDB (ephemeral, in-memory) | Free | $0.00 |
 | **Total** | **Free** | **$0.00/session** |
 
-The chat interface runs entirely on free tiers. Groq's free tier allows 100K tokens/day — sufficient for evaluation traffic. Voice calls cost ~$0.30 each on Vapi's pay-as-you-go plan with $10 free credits on signup.
+The chat interface runs entirely on free tiers. Groq's free tier allows 100K tokens/day - sufficient for evaluation traffic. Voice calls cost ~$0.30 each on Vapi's pay-as-you-go plan with $10 free credits on signup.
 
 
 ## Evals Summary
@@ -203,6 +203,6 @@ Full evaluation methodology and failure analysis in [`eval_report.pdf`](./eval_r
 
 ## Known Limitations
 
-- Email transcription via voice is error-prone for complex addresses — a fallback booking link is recommended for production
-- Groq free tier has a 100K token/day limit — two API keys are used with automatic fallback
+- Email transcription via voice is error-prone for complex addresses - a fallback booking link is recommended for production
+- Groq free tier has a 100K token/day limit - two API keys are used with automatic fallback
 - The RAG knowledge base is built in-memory on every cold start (~15 seconds) since HuggingFace Spaces doesn't persist binary files
