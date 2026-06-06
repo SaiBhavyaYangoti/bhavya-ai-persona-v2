@@ -1,7 +1,0 @@
-chromadb
-sentence-transformers
-pdfplumber
-PyGithub
-groq
-streamlit
-requests
